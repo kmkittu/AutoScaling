@@ -65,7 +65,7 @@ Availability Domain: Select an availability domain (the default AD 1 is fine)
 
 Shape: Click Change Shape
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/4.JPG)
 
 In the Browse All Shapes dialog:
 
@@ -77,7 +77,7 @@ Instance Shape: Select VM.Standard2.1
 
 Click Select Shape.
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/5.JPG)
 
 Under Configure Networking:
 
@@ -93,7 +93,7 @@ Use network security groups to control traffic : Leave un-checked
 
 Assign a public IP address: Check this option
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/5.JPG)
 
 Boot Volume and Add SSH Keys
 
@@ -101,7 +101,7 @@ Boot Volume: Leave the default, uncheck values
 
 Add SSH Keys: Choose 'Paste SSH Keys' and paste the Public Key saved in Lab 1.
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/6.JPG)
 
 Click Show Advanced Options.
 
