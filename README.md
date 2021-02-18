@@ -179,15 +179,18 @@ Click Next and then Create. Wait for Instance Pool to be in RUNNING state (turns
 
 From the Instance Pool Details page, click More Actions and choose Create Autoscaling Configuration.
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/13.JPG)
 
 On the Add Basic Details page:
 
 COMPARTMENT: Choose your compartment
+
 AUTOSCALING CONFIGURATION NAME : Provide a name
+
 INSTANCE POOL : This should show your instance pool name created earlier
 Note: If the instance pool name is blank, try refreshing the browser and trying again.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/13.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/14.JPG)
 
 Click Next.
 
@@ -195,6 +198,7 @@ On the Configure Autoscaling Policy page:
 
 Make sure that Metric-based Autoscaling is selected.
 AUTOSCALING POLICY NAME : Provide a name
+
 COOLDOWN IN SECONDS : 300 (This is he minimum period of time between scaling actions.)
 PERFORMANCE METRIC : CPU utilization (This is the Metric to use for triggering scaling actions.)
 SCALE-OUT OPERATOR : Greater than (>)
@@ -207,7 +211,7 @@ MINIMUM NUMBER OF INSTANCES : 1 (this is the minimum number of instances that th
 MAXIMUM NUMBER OF INSTANCES : 2 (this is the maximum number of instances that the pool will always have)
 INITIAL NUMBER OF INSTANCES : 1 (this is how many instances will be created in the instance pool initially)
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/14.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
 
 Click Next.
 
