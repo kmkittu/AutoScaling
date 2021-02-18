@@ -63,21 +63,9 @@ Click Show Shape, Network and Storage Options:
 
 Availability Domain: Select an availability domain (the default AD 1 is fine)
 
-Shape: Click Change Shape
+Shape: Choose appropriate chape. This workshop uses VM.Standard.E2.1 shape.
 
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/4.JPG)
-
-In the Browse All Shapes dialog:
-
-Instance Type: Select Virtual Machine
-
-Shape Series: Intel Lake
-
-Instance Shape: Select VM.Standard2.1
-
-Click Select Shape.
-
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/5.JPG)
 
 Under Configure Networking:
 
@@ -92,8 +80,10 @@ Subnet: Choose the Public Subnet under Public Subnets
 Use network security groups to control traffic : Leave un-checked
 
 Assign a public IP address: Check this option
-
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/5.JPG)
+
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/6.JPG)
 
 Boot Volume and Add SSH Keys
 
@@ -101,7 +91,7 @@ Boot Volume: Leave the default, uncheck values
 
 Add SSH Keys: Choose 'Paste SSH Keys' and paste the Public Key saved in Lab 1.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/6.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/7.JPG)
 
 Click Show Advanced Options.
 
