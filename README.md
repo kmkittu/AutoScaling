@@ -235,11 +235,11 @@ We have now created an autoscaling policy that will start with creating 1 comput
 
 Go to Compute -> Instance Pool page. Check the created Instance pool in the list. The state could be in Scaling. Wait until your Instance Pool change from Scaling to Running state. After the state change click the Instance pool, in that page Click Created Instances, you should see a compute instance created. Click the Compute Instance name.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.1.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.1.png)
 
 Note down the Public and Private IP of compute instance from the details page (Under Primary VNIC Information section).
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.2.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.2.png)
 
 Open a web browser and enter instance's public IP address. You should see the message: Web Server IP: <instance private IP>
 
@@ -261,7 +261,7 @@ Then install it manually through yum localinstall <stress.rpm file>
 
 Now start CPU stress, Enter command:
 
-        Copysudo stress --cpu 4 --timeout 350
+        sudo stress --cpu 4 --timeout 350
 
 Spawn 4 workers spinning on sqrt() with a timeout of 350 seconds.
 
