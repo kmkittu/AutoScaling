@@ -142,7 +142,7 @@ INSTANCE POOL NAME: Provide a suitable name
 NUMBER OF INSTANCES: 0
 (This is the number of computes that should be launched when the pool is created. We will start with no compute)
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/10.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/10.JPG.png)
 
 Click Next.
 
@@ -158,6 +158,8 @@ SUBNET COMPARTMENT: Choose your compartment
 
 SUBNET: Choose the Public Subnet
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/11.JPG.png)
+
 ATTACH A LOAD BALANCER: Select this option.
 
 LOAD BALANCER COMPARTMENT: Choose your compartment
@@ -170,9 +172,7 @@ PORT: 80
 
 VNIC: Leave the default
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/11.JPG)
-
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG.png)
 
 
 Click Next and then Create. Wait for Instance Pool to be in RUNNING state (turns green).
