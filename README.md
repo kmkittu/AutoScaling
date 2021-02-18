@@ -14,6 +14,7 @@ A cooldown period between autoscaling events lets the system stabilize at the up
 
 ## Steps
 ### 1) At First create Oracle OCI Login Credentials. It could be either Trial account or Pay-as-you-go account.
+
 ### 2) Create SSH key pair
 
  The SSH (Secure Shell) protocol is a method for secure remote login from one computer to another. SSH enables secure system administration and file transfers over insecure networks using encryption to secure the connections between endpoints. SSH keys are an important part of securely accessing Oracle Cloud Infrastructure compute instances in the cloud.
@@ -48,6 +49,42 @@ Create a set of SSH public key pair. This key will be used for compute instance 
         -rw-r--r--. 1 root root  396 Feb 17 06:56 id_rsa.pub
 
 ### 3) Create VCN (Virtual Cloud Network)
+
+Sign in using your tenant name, user name, and password. Use the login option under Oracle Cloud Infrastructure.
+
+From the OCI Services menu, under Networking, click Virtual Cloud Networks. 
+Select the compartment assigned to you from drop down menu on left part of the screen. Click Start VCN Wizard.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN1.JPG)
+
+NOTE: Ensure the correct Compartment is selected under COMPARTMENT list.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN2.JPG)
+
+Click VCN with Internet Connectivity and click Start VCN Wizard.
+
+Fill out the dialog box:
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN3.JPG)
+VCN NAME: Provide a name
+COMPARTMENT: Ensure your compartment is selected
+VCN CIDR BLOCK: Provide a CIDR block (10.0.0.0/16)
+PUBLIC SUBNET CIDR BLOCK: Provide a CIDR block (10.0.1.0/24)
+PRIVATE SUBNET CIDR BLOCK: Provide a CIDR block (10.0.2.0/24)
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN4.JPG)
+
+Click Next
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN5.JPG)
+
+Verify all the information and Click Create.
+
+This will create a VCN with the following components:
+
+VCN, Public subnet, Private subnet, Internet gateway (IG), NAT gateway (NAT), Service gateway (SG)
+
+Click View Virtual Cloud Network to display your VCN details.
 
 ### 4) Create Load Balancer and Update Security List
 
@@ -267,7 +304,7 @@ Spawn 4 workers spinning on sqrt() with a timeout of 350 seconds.
 
 Switch back to OCI console and navigate to Instance Pool Details page. Click your instance name and scroll down to Metric screen, you should see CPU spiking up after a minute or so.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/24.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/26.JPG)
 
 
 Navigate to your Instance Pool details page. In about 3-4 minutes (time configured when we created auto scale configuration), status of Pool should change to Scaling and a second compute instance should launch.
