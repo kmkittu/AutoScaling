@@ -95,16 +95,18 @@ Click Show Advanced Options.
 Under Management
 
 Initialization Script: Choose Paste cloud-init script and paste the below script. Cloud-init script will be executed at the first boot only to configure the instance.
-Copy#cloud-config
-packages:
-- httpd
-- stress
 
-runcmd:
-- [sh, -c, echo "<html>Web Server IP `hostname --ip-address`</html>" > /var/www/html/index.html]
-- [firewall-offline-cmd, --add-port=80/tcp]
-- [systemctl, start, httpd]
-- [systemctl, restart, firewalld]
+
+        #cloud-config
+        packages:
+        - httpd
+        - stress
+
+        runcmd:
+        - [sh, -c, echo "<html>Web Server IP `hostname --ip-address`</html>" > /var/www/html/index.html]
+        - [firewall-offline-cmd, --add-port=80/tcp]
+        - [systemctl, start, httpd]
+        - [systemctl, restart, firewalld]
 
 
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/7.JPG)
@@ -134,7 +136,9 @@ In the Instance Configuration page, Click Create Instance Pool.
 A new dialog box will appear. This is used to create initial configuration of the instance pool, such as how many compute instance to create initially, VCN, and Availability domain the instance pool should be created in. Fill out the dialog box:
 
 CREATE IN COMPARTMENT: Choose your compartment
+
 INSTANCE POOL NAME: Provide a suitable name
+
 NUMBER OF INSTANCES: 0
 (This is the number of computes that should be launched when the pool is created. We will start with no compute)
 
@@ -145,24 +149,36 @@ Click Next.
 On the Configure Pool Placement page:
 
 AVAILABILITY DOMAIN: Choose the AD where you want to place instances (you can choose the AD 1 if in Multi AD region)
+
 VIRTUAL CLOUD NETWORK COMPARTMENT: Choose VCN's compartment
+
 VIRTUAL CLOUD NETWORK: Choose your VCN
+
 SUBNET COMPARTMENT: Choose your compartment
+
 SUBNET: Choose the Public Subnet
+
 ATTACH A LOAD BALANCER: Select this option.
+
 LOAD BALANCER COMPARTMENT: Choose your compartment
+
 LOAD BALANCER: Choose the Load Balancer created earlier
+
 BACKEND SET: Choose the first backend set
+
 PORT: 80
+
 VNIC: Leave the default
 
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/11.JPG)
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG)
+
 
 Click Next and then Create. Wait for Instance Pool to be in RUNNING state (turns green).
 
 From the Instance Pool Details page, click More Actions and choose Create Autoscaling Configuration.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG)
 
 On the Add Basic Details page:
 
