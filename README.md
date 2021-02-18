@@ -55,28 +55,28 @@ Sign in using your tenant name, user name, and password. Use the login option un
 From the OCI Services menu, under Networking, click Virtual Cloud Networks. 
 Select the compartment assigned to you from drop down menu on left part of the screen. Click Start VCN Wizard.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN1.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN1.png)
 
 NOTE: Ensure the correct Compartment is selected under COMPARTMENT list.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN2.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN2.png)
 
 Click VCN with Internet Connectivity and click Start VCN Wizard.
 
 Fill out the dialog box:
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN3.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN3.png)
 VCN NAME: Provide a name
 COMPARTMENT: Ensure your compartment is selected
 VCN CIDR BLOCK: Provide a CIDR block (10.0.0.0/16)
 PUBLIC SUBNET CIDR BLOCK: Provide a CIDR block (10.0.1.0/24)
 PRIVATE SUBNET CIDR BLOCK: Provide a CIDR block (10.0.2.0/24)
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN4.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN4.png)
 
 Click Next
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN5.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/VCN5.png)
 
 Verify all the information and Click Create.
 
