@@ -82,16 +82,13 @@ Use network security groups to control traffic : Leave un-checked
 Assign a public IP address: Check this option
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/5.JPG)
 
-
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/6.JPG)
-
 Boot Volume and Add SSH Keys
 
 Boot Volume: Leave the default, uncheck values
 
 Add SSH Keys: Choose 'Paste SSH Keys' and paste the Public Key saved in Lab 1.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/7.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/6.JPG)
 
 Click Show Advanced Options.
 
@@ -110,6 +107,9 @@ runcmd:
 - [systemctl, restart, firewalld]
 
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/7.JPG)
+
+
 Click Create.
 
 NOTE: If 'Service limit' error is displayed, choose a different shape, such as VM.Standard.E2.2 OR VM.Standard2.2 OR choose a different AD.
@@ -119,7 +119,7 @@ Wait for Instance to be in Running state. You can scroll down to Work Requests t
 Click Instance name. Click More Actions, then select Create Instance Configuration.
 Fill out the dialog box:
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/8.JPG)
 
 CREATE IN COMPARTMENT: Choose your compartment
 
@@ -129,7 +129,7 @@ Click Create Instance Configuration.
 
 In the Instance Configuration page, Click Create Instance Pool.
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/9.JPG)
 
 A new dialog box will appear. This is used to create initial configuration of the instance pool, such as how many compute instance to create initially, VCN, and Availability domain the instance pool should be created in. Fill out the dialog box:
 
@@ -138,7 +138,7 @@ INSTANCE POOL NAME: Provide a suitable name
 NUMBER OF INSTANCES: 0
 (This is the number of computes that should be launched when the pool is created. We will start with no compute)
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/10.JPG)
 
 Click Next.
 
@@ -156,11 +156,13 @@ BACKEND SET: Choose the first backend set
 PORT: 80
 VNIC: Leave the default
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/11.JPG)
 
 Click Next and then Create. Wait for Instance Pool to be in RUNNING state (turns green).
 
 From the Instance Pool Details page, click More Actions and choose Create Autoscaling Configuration.
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG)
 
 On the Add Basic Details page:
 
@@ -169,7 +171,7 @@ AUTOSCALING CONFIGURATION NAME : Provide a name
 INSTANCE POOL : This should show your instance pool name created earlier
 Note: If the instance pool name is blank, try refreshing the browser and trying again.
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/13.JPG)
 
 Click Next.
 
@@ -189,6 +191,7 @@ MINIMUM NUMBER OF INSTANCES : 1 (this is the minimum number of instances that th
 MAXIMUM NUMBER OF INSTANCES : 2 (this is the maximum number of instances that the pool will always have)
 INITIAL NUMBER OF INSTANCES : 1 (this is how many instances will be created in the instance pool initially)
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/14.JPG)
 
 Click Next.
 
@@ -196,4 +199,4 @@ Click Create.
 
 We have now created an autoscaling policy that will start with creating 1 compute instance in the designated pool. Once the CPU utilization is determined to be above 10% for at least 300 seconds, another compute instance will be launched automatically. Once the CPU utilization is determined to be less than 5% for 300 seconds, one compute instance will be removed. At all times, there will be at least 1 compute instance in the pool.
 
-
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
