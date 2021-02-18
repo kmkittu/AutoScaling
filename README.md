@@ -135,6 +135,8 @@ In the Instance Configuration page, Click Create Instance Pool.
 
 A new dialog box will appear. This is used to create initial configuration of the instance pool, such as how many compute instance to create initially, VCN, and Availability domain the instance pool should be created in. Fill out the dialog box:
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/10.JPG.png)
+
 CREATE IN COMPARTMENT: Choose your compartment
 
 INSTANCE POOL NAME: Provide a suitable name
@@ -142,11 +144,11 @@ INSTANCE POOL NAME: Provide a suitable name
 NUMBER OF INSTANCES: 0
 (This is the number of computes that should be launched when the pool is created. We will start with no compute)
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/10.JPG.png)
-
 Click Next.
 
 On the Configure Pool Placement page:
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/11.JPG.png)
 
 AVAILABILITY DOMAIN: Choose the AD where you want to place instances (you can choose the AD 1 if in Multi AD region)
 
@@ -158,9 +160,9 @@ SUBNET COMPARTMENT: Choose your compartment
 
 SUBNET: Choose the Public Subnet
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/11.JPG.png)
-
 ATTACH A LOAD BALANCER: Select this option.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG.png)
 
 LOAD BALANCER COMPARTMENT: Choose your compartment
 
@@ -172,9 +174,6 @@ PORT: 80
 
 VNIC: Leave the default
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/12.JPG.png)
-
-
 Click Next and then Create. Wait for Instance Pool to be in RUNNING state (turns green).
 
 From the Instance Pool Details page, click More Actions and choose Create Autoscaling Configuration.
@@ -183,6 +182,8 @@ From the Instance Pool Details page, click More Actions and choose Create Autosc
 
 On the Add Basic Details page:
 
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/14.JPG)
+
 COMPARTMENT: Choose your compartment
 
 AUTOSCALING CONFIGURATION NAME : Provide a name
@@ -190,11 +191,11 @@ AUTOSCALING CONFIGURATION NAME : Provide a name
 INSTANCE POOL : This should show your instance pool name created earlier
 Note: If the instance pool name is blank, try refreshing the browser and trying again.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/14.JPG)
-
 Click Next.
 
 On the Configure Autoscaling Policy page:
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
 
 Make sure that Metric-based Autoscaling is selected.
 AUTOSCALING POLICY NAME : Provide a name
@@ -220,8 +221,6 @@ MINIMUM NUMBER OF INSTANCES : 1 (this is the minimum number of instances that th
 MAXIMUM NUMBER OF INSTANCES : 2 (this is the maximum number of instances that the pool will always have)
 
 INITIAL NUMBER OF INSTANCES : 1 (this is how many instances will be created in the instance pool initially)
-
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
 
 Click Next.
 
