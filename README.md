@@ -200,15 +200,25 @@ Make sure that Metric-based Autoscaling is selected.
 AUTOSCALING POLICY NAME : Provide a name
 
 COOLDOWN IN SECONDS : 300 (This is he minimum period of time between scaling actions.)
+
 PERFORMANCE METRIC : CPU utilization (This is the Metric to use for triggering scaling actions.)
+
 SCALE-OUT OPERATOR : Greater than (>)
+
 THRESHOLD PERCENTAGE : 10
+
 NUMBER OF INSTANCES TO ADD : 1
+
 SCALE-IN OPERATOR : Less than (<)
+
 THRESHOLD PERCENTAGE : 5
+
 NUMBER OF INSTANCES TO REMOVE : 1
+
 MINIMUM NUMBER OF INSTANCES : 1 (this is the minimum number of instances that the pool will always have)
+
 MAXIMUM NUMBER OF INSTANCES : 2 (this is the maximum number of instances that the pool will always have)
+
 INITIAL NUMBER OF INSTANCES : 1 (this is how many instances will be created in the instance pool initially)
 
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
@@ -219,4 +229,4 @@ Click Create.
 
 We have now created an autoscaling policy that will start with creating 1 compute instance in the designated pool. Once the CPU utilization is determined to be above 10% for at least 300 seconds, another compute instance will be launched automatically. Once the CPU utilization is determined to be less than 5% for 300 seconds, one compute instance will be removed. At all times, there will be at least 1 compute instance in the pool.
 
-![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.JPG)
