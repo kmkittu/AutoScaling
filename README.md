@@ -198,6 +198,7 @@ On the Configure Autoscaling Policy page:
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/15.JPG)
 
 Make sure that Metric-based Autoscaling is selected.
+
 AUTOSCALING POLICY NAME : Provide a name
 
 COOLDOWN IN SECONDS : 300 (This is he minimum period of time between scaling actions.)
@@ -229,3 +230,57 @@ Click Create.
 We have now created an autoscaling policy that will start with creating 1 compute instance in the designated pool. Once the CPU utilization is determined to be above 10% for at least 300 seconds, another compute instance will be launched automatically. Once the CPU utilization is determined to be less than 5% for 300 seconds, one compute instance will be removed. At all times, there will be at least 1 compute instance in the pool.
 
 ![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.JPG)
+
+## 6) Test the AutoScaling setup
+
+Go to Compute -> Instance Pool page. Check the created Instance pool in the list. The state could be in Scaling. Wait until your Instance Pool change from Scaling to Running state. After the state change click the Instance pool, in that page Click Created Instances, you should see a compute instance created. Click the Compute Instance name.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.1.JPG)
+
+Note down the Public and Private IP of compute instance from the details page (Under Primary VNIC Information section).
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/16.2.JPG)
+
+Open a web browser and enter instance's public IP address. You should see the message: Web Server IP: <instance private IP>
+
+Login into the server via Putty. You need to specify private key while making the connection.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/17.JPG)
+
+We are going to introduce CPU load manually through stress command. Check whether the stress command library is installed in the compute machine. Our init script has command to install stress via yum. Sometimes yum repository might not have library for stress.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/20.JPG)
+
+In that case you can manually transfer rpm file through sftp 
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/22.JPG)
+
+Then install it manually through yum localinstall <stress.rpm file>
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/23.JPG)
+
+Now start CPU stress, Enter command:
+
+        Copysudo stress --cpu 4 --timeout 350
+
+Spawn 4 workers spinning on sqrt() with a timeout of 350 seconds.
+
+Switch back to OCI console and navigate to Instance Pool Details page. Click your instance name and scroll down to Metric screen, you should see CPU spiking up after a minute or so.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/24.JPG)
+
+
+Navigate to your Instance Pool details page. In about 3-4 minutes (time configured when we created auto scale configuration), status of Pool should change to Scaling and a second compute instance should launch.
+
+
+This is since our criteria of CPU utilization > 10 was met.
+
+When the second instance is up and running and the instance pool status is 'Running', switch to the web browser and refresh the page multiple times and observe the load balancer balancing traffic between the two web servers.
+
+Switch back to git bash window and if the stress tool is still running, click Ctrl + C to stop the script.
+
+Switch back to OCI console window and navigate to your compute instance details page. Verify CPU utilization goes down after a minute.
+
+Navigate to Instance pool details page and after 3-4 minute Instance pool status will change to Scaling . Additional compute instance will be deleted.
+
+This is because our criteria of CPU utilization < 5 is met.
