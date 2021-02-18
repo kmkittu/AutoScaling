@@ -88,6 +88,89 @@ Click View Virtual Cloud Network to display your VCN details.
 
 ### 4) Create Load Balancer and Update Security List
 
+When you create a load balancer, you choose its shape (size) and specify subnets from different Availability Domains. This ensures that the load balancer is highly available.
+
+From OCI Services menu, under Networking, click Load Balancers.
+
+Click Create Load Balancer. Fill out the dialog box;
+
+Under Add Details
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR1.png)
+
+LOAD BALANCER NAME: Enter a name for your load balancer.
+CHOOSE VISIBILITY TYPE: Public
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR2.png)
+
+CHOOSE THE MAXIMUM TOTAL BANDWIDTH: Select SMALL 100Mbps. (This specifies the bandwidth of the load balancer.)
+NOTE: Shape cannot be changed later.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR3.png)
+
+VIRTUAL CLOUD NETWORK: Choose your Virtual Cloud Network
+SUBNET: Choose the Public Subnet
+
+Click Next.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR4.png)
+Under Choose Backends:
+
+SPECIFY A LOAD BALANCING POLICY: Weighted Round Robin
+Add Backends: Don't add any backend. This will be managed by the instance pool.
+Under SPECIFY HEALTH CHECK POLICY
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR5.png)
+
+PROTOCOL: HTTP
+
+Port: 80
+
+URL PATH (URI): /
+
+Leave other options as default
+
+Click **Next**.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR6.png)
+
+Under Configure Listener
+
+SPECIFY THE TYPE OF TRAFFIC YOUR LISTENER HANDLES: HTTP
+
+SPECIFY THE PORT YOUR LISTENER MONITORS FOR INGRESS TRAFFIC: 80
+
+Leave other options as default
+
+Click Submit .
+
+Wait for the load balancer to become active and then note down it’s public IP address.
+
+From OCI Services menu, under Networking, click Virtual Cloud Networks . Locate the VCN you created earlier.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR7.png)
+
+Click VCN name to display VCN Details page.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR8.png)
+
+Click Security Lists, and locate the Default Security List.
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR9.png)
+
+Click Default Security List for Your_VCN, click Add Ingress Rules. Enter the following ingress rule:
+
+Ensure to leave STATELESS flag un-checked
+Source Type: CIDR
+Source CIDR: Enter 0.0.0.0/0
+IP Protocol: Select TCP
+Source Port Range: All
+Destination Port Range: Enter 80 (the listener port)
+
+![Compute instance VM](https://github.com/kmkittu/AutoScaling/blob/main/LBR10.png)
+
+Click Add Ingress Rules.
+
 ### 5)  Configure instance pool and auto scaling
 Go to the OCI console. From OCI services menu, under Compute, click Instances.
 
