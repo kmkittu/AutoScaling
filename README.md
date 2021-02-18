@@ -272,15 +272,10 @@ Switch back to OCI console and navigate to Instance Pool Details page. Click you
 
 Navigate to your Instance Pool details page. In about 3-4 minutes (time configured when we created auto scale configuration), status of Pool should change to Scaling and a second compute instance should launch.
 
-
 This is since our criteria of CPU utilization > 10 was met.
 
 When the second instance is up and running and the instance pool status is 'Running', switch to the web browser and refresh the page multiple times and observe the load balancer balancing traffic between the two web servers.
 
-Switch back to git bash window and if the stress tool is still running, click Ctrl + C to stop the script.
-
-Switch back to OCI console window and navigate to your compute instance details page. Verify CPU utilization goes down after a minute.
-
+Switch back to git bash window and if the stress tool is still running, click Ctrl + C to stop the script. Switch back to OCI console window and navigate to your compute instance details page. Verify CPU utilization goes down after a minute. 
 Navigate to Instance pool details page and after 3-4 minute Instance pool status will change to Scaling . Additional compute instance will be deleted.
-
-This is because our criteria of CPU utilization < 5 is met.
+sThis is because our criteria of CPU utilization < 5 is met.
